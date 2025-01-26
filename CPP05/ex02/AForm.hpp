@@ -13,6 +13,7 @@ class AForm
         bool _sign;
         const int _gradeSign;
         const int _gradeExcute;
+    protected:
         class GradeTooHighException : public std::exception
         {
             public:
@@ -25,7 +26,7 @@ class AForm
         };
     public:
         AForm();
-        ~AForm();
+        virtual ~AForm();
         AForm(const std::string &name, const int gradeSign, const int gradeExcute);
         AForm(const AForm &form);
         AForm& operator=(const AForm &form);
@@ -34,7 +35,7 @@ class AForm
         const int getGradeExcute() const ;
         bool getSign() const ;
         void beSigned(const Bureaucrat &bure);
-        virtual void excute(const Bureaucrat &bure) = 0;
+        virtual void excute(const Bureaucrat &bure)const = 0;
 };
 
 std::ostream &operator<<(std::ostream &os,const Form &form);

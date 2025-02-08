@@ -4,7 +4,7 @@ int main()
 {
     try
     {
-        Bureaucrat bee("la" , 157);
+        Bureaucrat bee("la" , 1);
     }
     catch(const std::exception& e)
     {

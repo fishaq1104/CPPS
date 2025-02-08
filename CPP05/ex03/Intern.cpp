@@ -2,53 +2,50 @@
 
 Intern::Intern()
 {
-
+    std::cout << "Intern has been created"<< std::endl;
 }
 
 Intern::~Intern()
 {
-
+    std::cout << "Intern has been destroyed"<< std::endl;
 }
 
-Intern::Intern(const Intern &intern)
-{
-
+Intern::Intern(const Intern &intern){
 }
 
 Intern& Intern::operator=(const Intern &intern)
 {
-
     return *this;
 }
 
-AForm* pred(std:: string name, std::string target)
+AForm* pred(std::string target)
 {
-    return (new PresidentialPardonForm("",0,0,target));
+    return (new PresidentialPardonForm(target));
 }
-AForm* shub(std:: string name, std::string target)
+AForm* shub(std::string target)
 {
-    return (new ShrubberyCreationForm("",0,0,target));
+    return (new ShrubberyCreationForm(target));
 }
 
-AForm* robo(std:: string name, std::string target)
+AForm* robo(std::string target)
 {
-    return (new RobotomyRequestForm("",0,0,target));
+    return (new RobotomyRequestForm(target));
 }
 AForm* Intern::makeForm(const std::string &name, const std::string &target)
 {
     std::string form[] = {"presidantial pardon" , "shrubbery creation" , "robotomy request"};
 
-    AForm* (*forms[])(std:: string name, std::string target) = {&pred,&shub, &robo};
-    for(int i =0 ; i< 3; i++)
+    AForm* (*forms[])(std::string target) = {&pred,&shub, &robo};
+    for(int i = 0; i< 3; i++)
     {
         if(form[i] == name)
         {
             std::cout << "Intern creates " << form[i] << std::endl;
-            return (*forms[i])(name, target);
+            return (*forms[i])(target);
         }
     }
-    //throw an exception here ...
     throw(Intern::WrongNameException());
+    return NULL;
 }
 
 const char *Intern::WrongNameException::what() const throw()

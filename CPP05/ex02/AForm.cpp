@@ -22,12 +22,7 @@ AForm::AForm(const AForm &form): _name(form._name), _gradeSign(form._gradeSign),
 AForm& AForm::operator=(const AForm &form)
 {
     if (this != &form)
-    {
-        const_cast<std::string &>(this->_name) = form._name;
-        const_cast<int &>(this->_gradeExcute) = form._gradeExcute;
-        const_cast<int &>(this->_gradeSign) = form._gradeSign;
         this->_sign = form._sign;
-    }
     return *this;
 }
 
@@ -73,4 +68,9 @@ const char *AForm::GradeTooHighException:: what() const throw()
 const char *AForm::GradeTooLowException:: what() const throw()
 {
     return "Form: The grade is Low";
+}
+
+const char *AForm::NonSignException::what() const throw()
+{
+	return "The Form is not signed yet!";
 }

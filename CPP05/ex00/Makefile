@@ -1,22 +1,18 @@
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = main.cpp Bureaucrat.cpp
-OBJS = $(SRCS:.cpp=.o)
 NAME = ex00
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(SRCS)
 	$(CPP) $(CPPFLAGS) -o $@ $^
 
-%.o: %.cpp
-	$(CPP) $(CPPFLAGS) -c $< -o $@
-
 clean:
-	rm -f $(OBJS)
+	rm -f $(NAME)
 
 fclean: clean
-	rm -f $(NAME)
+
 re: fclean all
 
 .PHONY: all clean fclean re

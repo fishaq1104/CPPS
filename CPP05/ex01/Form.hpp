@@ -34,7 +34,6 @@ class Form
         const int getGradeExcute() const ;
         bool getSign() const ;
         void beSigned(const Bureaucrat &bure);
-
 };
 
 std::ostream &operator<<(std::ostream &os,const Form &form);

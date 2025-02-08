@@ -11,13 +11,7 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade): _name(name), _grade(
         throw (Bureaucrat::GradeTooLowException());
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &bure) : _name(bure._name), _grade(bure._grade)
-{
-    if (this != &bure)
-    {
-        const_cast<std::string &>(this->_name) = bure._name;
-        this->_grade = bure._grade;
-    }
+Bureaucrat::Bureaucrat(const Bureaucrat &bure) : _name(bure._name), _grade(bure._grade){
 }
 
 Bureaucrat::~Bureaucrat(){
@@ -27,7 +21,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &bure)
 {
     if (this != &bure) 
     {
-        const_cast<std::string &>(this->_name) = bure._name;
+        const_cast<std::string &>(this->_name) = bure._name; //see this
         this->_grade = bure._grade;
     }
         return *this;
@@ -54,12 +48,12 @@ void Bureaucrat::setGrade(const int &grade)
 
 void Bureaucrat::setName(const std::string &name)
 {
-    const_cast<std::string &>(this->_name) = name;
+    const_cast<std::string &>(this->_name) = name; //see this
 }
 
 void Bureaucrat::increment()
 {
-    if(this->_grade > 0)
+    if(this->_grade > 1)
         this->_grade--;
     else
         throw Bureaucrat::GradeTooHighException();
@@ -67,7 +61,7 @@ void Bureaucrat::increment()
 
 void Bureaucrat::decrement()
 {
-    if(this->_grade <= 150)
+    if(this->_grade < 150)
         this->_grade++;
     else
         throw Bureaucrat::GradeTooLowException();
@@ -88,6 +82,7 @@ const char *Bureaucrat::GradeTooLowException:: what() const throw()
 {
     return "Bureaucrat: The grade is Low";
 }
+
 
 void Bureaucrat::signForm(Form &form)
 {
@@ -111,7 +106,7 @@ void Bureaucrat::executeForm(AForm const & form)
     }
     catch(const std::exception& e)
     {
-        std::cout <<"Excuted : " << e.what() << std::endl;
+        std::cout <<"Not Excuted : " << e.what() << std::endl;
     }
 }
 

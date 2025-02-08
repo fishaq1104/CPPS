@@ -5,20 +5,14 @@
 ShrubberyCreationForm::ShrubberyCreationForm() :AForm(){
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &name, const int gradeSign, const int gradeExcute, const std::string &target)
-:AForm(name, gradeSign, gradeExcute), _target(target)
-{
-
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
+:AForm("Shrubbery Creation Form", 145, 137), _target(target){
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
-{
-
+ShrubberyCreationForm::~ShrubberyCreationForm(){
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &sc) :AForm(sc), _target(sc._target)
-{
-
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &sc) :AForm(sc), _target(sc._target){
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm &sc)
@@ -30,10 +24,10 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::excute(const Bureaucrat &bure) const
 {
-    if(this->getGradeExcute() > 145 || this->getGradeSign() > 137)
+    if(bure.getGrade() > 137)
         throw ShrubberyCreationForm::GradeTooLowException();
-    if(this->getGradeSign() < 145 || this->getGradeSign() < 137 )
-        throw ShrubberyCreationForm::GradeTooLowException();
+    if(!this->getSign())
+        throw ShrubberyCreationForm::NonSignException(); 
     std::ofstream subtree((this->_target + "_shrubbery").c_str());
     if(subtree.is_open())
     {

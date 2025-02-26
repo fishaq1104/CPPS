@@ -21,7 +21,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
     return *this;
 }
 
-void PresidentialPardonForm::excute(const Bureaucrat &bure) const
+void PresidentialPardonForm::execute(const Bureaucrat &bure) const
 {
     if(!this->getSign())
         throw PresidentialPardonForm::NonSignException();

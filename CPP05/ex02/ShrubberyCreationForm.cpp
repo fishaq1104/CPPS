@@ -22,7 +22,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
     return *this;
 }
 
-void ShrubberyCreationForm::excute(const Bureaucrat &bure) const
+void ShrubberyCreationForm::execute(const Bureaucrat &bure) const
 {
     if(bure.getGrade() > 137)
         throw ShrubberyCreationForm::GradeTooLowException();

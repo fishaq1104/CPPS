@@ -23,9 +23,9 @@ Form& Form::operator=(const Form &form)
 {
     if (this != &form)
     {
-        const_cast<std::string &>(this->_name) = form._name;
-        const_cast<int &>(this->_gradeExcute) = form._gradeExcute;
-        const_cast<int &>(this->_gradeSign) = form._gradeSign;
+        // const_cast<std::string &>(this->_name) = form._name;
+        // const_cast<int &>(this->_gradeExcute) = form._gradeExcute;
+        // const_cast<int &>(this->_gradeSign) = form._gradeSign;
         this->_sign = form._sign;
     }
     return *this;

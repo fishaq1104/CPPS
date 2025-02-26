@@ -29,7 +29,7 @@ class Form
         Form(const std::string &name, const int gradeSign, const int gradeExcute);
         Form(const Form &form);
         Form& operator=(const Form &form);
-        const std::string getName()const ; 
+        const std::string getName()const ;
         const int getGradeSign() const ;
         const int getGradeExcute() const ;
         bool getSign() const ;

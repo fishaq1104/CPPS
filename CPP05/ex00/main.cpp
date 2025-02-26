@@ -4,7 +4,10 @@ int main()
 {
     try
     {
-        Bureaucrat bee("la" , 1);
+        Bureaucrat bru("Bureaucrat" , 5);
+        bru.increment();
+        bru.decrement();
+        std::cout << "Name : "<< bru.getGrade() << std::endl;
     }
     catch(const std::exception& e)
     {

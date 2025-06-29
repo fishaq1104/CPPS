@@ -1,5 +1,7 @@
 #include "Bureaucrat.hpp"
 
+//add setters for like for this and like mesage for the constructor and desconstructors ..
+
 Bureaucrat::Bureaucrat():_name("name"), _grade(0){
 }
 
@@ -9,12 +11,14 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade): _name(name), _grade(
         throw (Bureaucrat::GradeTooHighException());
     if(grade > 150)
         throw (Bureaucrat::GradeTooLowException());
+    std::cout <<"The Bureaucrat " << this->_name << " has been created" << std::endl; //.
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bure) : _name(bure._name), _grade(bure._grade){
 }
 
 Bureaucrat::~Bureaucrat(){
+    std::cout <<"The Bureaucrat " << this->_name << " has been destroyed" << std::endl; //.
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &bure)
@@ -36,7 +40,7 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::increment()
 {
-    if(this->_grade > 1)
+    if((this->_grade - 1) > 1) //.
         this->_grade--;
     else
         throw Bureaucrat::GradeTooHighException();
@@ -44,7 +48,7 @@ void Bureaucrat::increment()
 
 void Bureaucrat::decrement()
 {
-    if(this->_grade < 150)
+    if((this->_grade + 1) < 150) // make the change
         this->_grade++;
     else
         throw Bureaucrat::GradeTooLowException();

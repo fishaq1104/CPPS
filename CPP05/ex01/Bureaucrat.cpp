@@ -1,5 +1,7 @@
 #include "Bureaucrat.hpp"
 
+//Do the things like writing weather it i Build and tsuffs ... and make the main proper  fix the messages
+
 Bureaucrat::Bureaucrat():_name("name"), _grade(0){
 }
 
@@ -19,11 +21,8 @@ Bureaucrat::~Bureaucrat(){
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &bure)
 {
-    if (this != &bure) 
-    {
-        const_cast<std::string &>(this->_name) = bure._name; //see this
+    if (this != &bure)
         this->_grade = bure._grade;
-    }
         return *this;
 }
 
@@ -35,20 +34,6 @@ const std::string Bureaucrat::getName() const
 int Bureaucrat::getGrade() const
 {
     return this->_grade;
-}
-
-void Bureaucrat::setGrade(const int &grade)
-{
-    if(grade < 1)
-        throw Bureaucrat::GradeTooHighException();
-    if(grade > 150)
-        throw Bureaucrat::GradeTooLowException();
-    this->_grade = grade;
-}
-
-void Bureaucrat::setName(const std::string &name)
-{
-    const_cast<std::string &>(this->_name) = name; //see this
 }
 
 void Bureaucrat::increment()

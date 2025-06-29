@@ -11,10 +11,13 @@ Intern::~Intern()
 }
 
 Intern::Intern(const Intern &intern){
+    *this = intern;
 }
 
 Intern& Intern::operator=(const Intern &intern)
 {
+    if(this != &intern)
+        *this = intern;
     return *this;
 }
 

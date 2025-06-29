@@ -1,6 +1,6 @@
 #include "AForm.hpp"
 
-AForm::AForm() :_name("name"), _gradeExcute(0), _gradeSign(0), _sign(0){
+AForm::AForm() :_name("name"), _sign(0), _gradeSign(0), _gradeExcute(0){
 }
 
 AForm::~AForm(){
@@ -15,8 +15,8 @@ AForm::AForm(const std::string &name, const int gradeSign, const int gradeExcute
         throw AForm::GradeTooHighException();
 }
 
-AForm::AForm(const AForm &form): _name(form._name), _gradeSign(form._gradeSign), 
-            _gradeExcute(form._gradeExcute), _sign(form._sign){
+AForm::AForm(const AForm &form): _name(form._name), _sign(form._sign), _gradeSign(form._gradeSign), 
+ _gradeExcute(form._gradeExcute){
 }
 
 AForm& AForm::operator=(const AForm &form)
@@ -31,12 +31,12 @@ const std::string AForm::getName() const
     return this->_name;
 }
 
-const int AForm::getGradeSign() const
+int AForm::getGradeSign() const
 {
     return this->_gradeSign;
 }
 
-const int AForm::getGradeExcute() const
+int AForm::getGradeExcute() const
 {
     return this->_gradeExcute;
 }

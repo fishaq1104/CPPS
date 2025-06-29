@@ -5,7 +5,8 @@
 #include <string>
 #include <exception>
 #include "AForm.hpp"
-#include "Form.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -34,7 +35,7 @@ class Bureaucrat
         void setName(const std::string &name);
         void increment();
         void decrement();
-        void signForm(Form &form);
+        void signForm(AForm &form);
         void executeForm(AForm const & form);
 };
 

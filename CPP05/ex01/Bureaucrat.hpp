@@ -1,10 +1,11 @@
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#pragma once
 
 #include <iostream>
 #include <string>
 #include <exception>
 #include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -29,13 +30,9 @@ class Bureaucrat
         ~Bureaucrat();
         const std::string getName() const;
         int getGrade() const;
-        void setGrade(const int &grade);
-        void setName(const std::string &name);
         void increment();
         void decrement();
         void signForm(Form &form);
 };
 
 std::ostream &operator<<(std::ostream &os,const Bureaucrat &bure);
-
-#endif

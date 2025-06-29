@@ -83,8 +83,7 @@ const char *Bureaucrat::GradeTooLowException:: what() const throw()
     return "Bureaucrat: The grade is Low";
 }
 
-
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
     try
     {
@@ -106,7 +105,7 @@ void Bureaucrat::executeForm(AForm const & form)
     }
     catch(const std::exception& e)
     {
-        std::cout <<"Not Excuted : " << e.what() << std::endl;
+        std::cout <<"Not Excuted Because: " << e.what() << std::endl;
     }
 }
 

@@ -5,6 +5,7 @@
 #include <exception>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
 
 class AForm
 {
@@ -36,11 +37,11 @@ class AForm
         AForm(const AForm &form);
         AForm& operator=(const AForm &form);
         const std::string getName()const ;
-        const int getGradeSign() const ;
-        const int getGradeExcute() const ;
+        int getGradeSign() const ;
+        int getGradeExcute() const ;
         bool getSign() const ;
         void beSigned(const Bureaucrat &bure);
         virtual void execute(const Bureaucrat &bure)const = 0;
 };
 
-std::ostream &operator<<(std::ostream &os,const Form &form);
+std::ostream &operator<<(std::ostream &os,const AForm &form);

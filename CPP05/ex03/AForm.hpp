@@ -5,6 +5,7 @@
 #include <exception>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
 
 class AForm
 {
@@ -24,6 +25,11 @@ class AForm
             public:
                 const char* what() const throw();
         };
+        class NonSignException: public std::exception
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
     public:
         AForm();
         virtual ~AForm();
@@ -31,11 +37,11 @@ class AForm
         AForm(const AForm &form);
         AForm& operator=(const AForm &form);
         const std::string getName()const ;
-        const int getGradeSign() const ;
-        const int getGradeExcute() const ;
+        int getGradeSign() const ;
+        int getGradeExcute() const ;
         bool getSign() const ;
         void beSigned(const Bureaucrat &bure);
         virtual void excute(const Bureaucrat &bure)const = 0;
 };
 
-std::ostream &operator<<(std::ostream &os,const Form &form);
+std::ostream &operator<<(std::ostream &os,const AForm &form);

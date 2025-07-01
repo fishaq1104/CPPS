@@ -11,19 +11,21 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade): _name(name), _grade(
         throw (Bureaucrat::GradeTooHighException());
     if(grade > 150)
         throw (Bureaucrat::GradeTooLowException());
+    std::cout <<"The Bureaucrat " << this->_name << " has been created" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bure) : _name(bure._name), _grade(bure._grade){
 }
 
 Bureaucrat::~Bureaucrat(){
+    std::cout <<"The Bureaucrat " << this->_name << " has been destroyed" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &bure)
 {
     if (this != &bure)
         this->_grade = bure._grade;
-        return *this;
+    return *this;
 }
 
 const std::string Bureaucrat::getName() const

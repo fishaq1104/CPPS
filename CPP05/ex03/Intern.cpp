@@ -36,7 +36,7 @@ AForm* robo(std::string target)
 }
 AForm* Intern::makeForm(const std::string &name, const std::string &target)
 {
-    std::string form[] = {"presidantial pardon" , "shrubbery creation" , "robotomy request"};
+    std::string form[] = {"presidential pardon" , "shrubbery creation" , "robotomy request"};
 
     AForm* (*forms[])(std::string target) = {&pred,&shub, &robo};
     for(int i = 0; i< 3; i++)

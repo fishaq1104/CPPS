@@ -9,10 +9,12 @@ int main()
         bru2.decrement();
         std::cout << bru2;
         std::cout << "Grade : "<< bru2.getGrade() << std::endl;
+        std::cout << "___________________________________________\n";
         Bureaucrat bru("Bureaucrat" , 1);
         bru.increment();
         bru.decrement();
         std::cout << "Grade : "<< bru.getGrade() << std::endl;
+        std::cout << "___________________________________________\n";
         Bureaucrat bru1("Bureaucrat" , 150);
         bru1.decrement();
         bru1.increment();

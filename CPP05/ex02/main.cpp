@@ -8,11 +8,11 @@ int main()
 {
     try
     {
-        Bureaucrat  intern("Intern", 150);  
+        Bureaucrat  Robin("Robin", 150);  
         Bureaucrat  bob("Bob", 50); 
         Bureaucrat  alice("Alice", 1);
 
-        std::cout << intern << bob  << alice;
+        std::cout << Robin << bob  << alice;
         std::cout << "--------------------------------------------------\n";
 
         ShrubberyCreationForm   shrub("Home");
@@ -25,7 +25,7 @@ int main()
         std::cout << "--------------------------------------------------\n";
 
         try {
-            intern.signForm(shrub);
+            Robin.signForm(shrub);
         } catch (const std::exception& e) {
             std::cerr << e.what() << '\n';
         }

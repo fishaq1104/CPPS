@@ -1,7 +1,5 @@
 #include "Bureaucrat.hpp"
 
-//add setters for like for this and like mesage for the constructor and desconstructors ..
-
 Bureaucrat::Bureaucrat():_name("name"), _grade(0){
 }
 
@@ -11,21 +9,21 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade): _name(name), _grade(
         throw (Bureaucrat::GradeTooHighException());
     if(grade > 150)
         throw (Bureaucrat::GradeTooLowException());
-    std::cout <<"The Bureaucrat " << this->_name << " has been created" << std::endl; //.
+    std::cout <<"The Bureaucrat " << this->_name << " has been created" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bure) : _name(bure._name), _grade(bure._grade){
 }
 
 Bureaucrat::~Bureaucrat(){
-    std::cout <<"The Bureaucrat " << this->_name << " has been destroyed" << std::endl; //.
+    std::cout <<"The Bureaucrat " << this->_name << " has been destroyed" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &bure)
 {
     if (this != &bure)
         this->_grade = bure._grade;
-        return *this;
+    return *this;
 }
 
 const std::string Bureaucrat::getName() const
@@ -40,18 +38,20 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::increment()
 {
-    if((this->_grade - 1) > 1) //.
+    if((this->_grade - 1) > 1)
         this->_grade--;
     else
         throw Bureaucrat::GradeTooHighException();
+    std::cout <<"The Bureaucrat " << this->_name << " has been incremented successfully" << std::endl;
 }
 
 void Bureaucrat::decrement()
 {
-    if((this->_grade + 1) < 150) // make the change
+    if((this->_grade + 1) < 150)
         this->_grade++;
     else
         throw Bureaucrat::GradeTooLowException();
+    std::cout <<"The Bureaucrat " << this->_name << " has been decremented successfully" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &os,const Bureaucrat &bure)

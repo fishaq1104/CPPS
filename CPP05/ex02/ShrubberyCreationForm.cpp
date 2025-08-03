@@ -1,6 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fishaq <fishaq@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 17:55:03 by fishaq            #+#    #+#             */
+/*   Updated: 2025/07/05 18:37:33 by fishaq           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ShrubberyCreationForm.hpp"
-
-
 
 ShrubberyCreationForm::ShrubberyCreationForm() :AForm(){
 }
@@ -31,23 +41,18 @@ void ShrubberyCreationForm::execute(const Bureaucrat &bure) const
     std::ofstream subtree((this->_target + "_shrubbery").c_str());
     if(subtree.is_open())
     {
-        subtree << "               *\n";
-        subtree << "              /#\\\n";
-        subtree << "             /###\\\n";
-        subtree << "            /#####\\\n";
-        subtree << "           /#######\\\n";
-        subtree << "          /#########\\\n";
-        subtree << "         /###########\\\n";
-        subtree << "        /#############\\\n";
-        subtree << "       /###############\\\n";
-        subtree << "      /#################\\\n";
-        subtree << "     /###################\\\n";
-        subtree << "    /#####################\\\n";
-        subtree << "   /#######################\\\n";
-        subtree << "      |||||||||||||||||\n";
-        subtree << "      |||||||||||||||||\n";
-        subtree << "      |||||||||||||||||\n";
+        subtree << "                                  # #### ####\n";
+        subtree << "                                ### \\\\/#|### |/####\n";
+        subtree << "                               ##\\/#/ \\||/##/_/##/_#\n";
+        subtree << "                             ###  \\/###|/ \\/ # ###\n";
+        subtree << "                           ##_\\_#\\_\\## | #/###_/_####\n";
+        subtree << "                          ## #### # \\\\ #| /  #### ##/##\n";
+        subtree << "                           __#_--###`  |{,###---###-~\n";
+        subtree << "                                     \\\\ }{\n";
+        subtree << "                                      }}{\n";
+        subtree << "                                      }}{\n";
+        subtree << "                                      {{}}\n";
     }
     else
-        std::cout<<"the file was not being able to open :(" << std::endl;
+        std::cout<<"The file could not be opened :(" << std::endl;
 }

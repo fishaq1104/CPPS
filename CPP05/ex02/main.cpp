@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fishaq <fishaq@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 17:56:23 by fishaq            #+#    #+#             */
+/*   Updated: 2025/07/07 18:59:38 by fishaq           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -13,31 +25,36 @@ int main()
         Bureaucrat  alice("Alice", 1);
 
         std::cout << Robin << bob  << alice;
-        std::cout << "--------------------------------------------------\n";
+        std::cout << "--------------------------------------------------" << std::endl;
 
         ShrubberyCreationForm   shrub("Home");
         RobotomyRequestForm     robo("Bender");
         PresidentialPardonForm  pardon("Marvin");
 
-        std::cout << shrub  << '\n'
-                  << robo   << '\n'
-                  << pardon << '\n';
-        std::cout << "--------------------------------------------------\n";
+        std::cout << shrub  << '\n' << robo   << '\n' << pardon <<  std::endl;
+        std::cout << "--------------------------------------------------" << std::endl;
 
-        try {
+        try 
+        {
             Robin.signForm(shrub);
-        } catch (const std::exception& e) {
+        }
+        catch (const std::exception& e) 
+        {
             std::cerr << e.what() << '\n';
         }
-        std::cout << "--------------------------------------------------\n";
+        
+        std::cout << "--------------------------------------------------" << std::endl;
 
         bob.signForm(shrub);
-        try {
+        
+        try 
+        {
             bob.executeForm(shrub); 
-        } catch (const std::exception& e) {
-            std::cerr << e.what() << '\n';
+        } catch (const std::exception& e) 
+        {
+            std::cerr << e.what() << std::endl;
         }
-        std::cout << "--------------------------------------------------\n";
+        std::cout << "--------------------------------------------------" << std::endl;
         alice.signForm(robo);
         alice.signForm(pardon);
 
@@ -47,7 +64,7 @@ int main()
     }
     catch (const std::exception& e)
     {
-        std::cerr << "Uncaught exception: " << e.what() << '\n';
+        std::cerr << "Uncaught exception: " << e.what() << std::endl;
     }
     return 0;
 }

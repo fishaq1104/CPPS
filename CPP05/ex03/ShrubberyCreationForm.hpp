@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fishaq <fishaq@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 18:03:12 by fishaq            #+#    #+#             */
+/*   Updated: 2025/07/05 18:03:13 by fishaq           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 
 #include "AForm.hpp"
@@ -13,6 +25,5 @@ class ShrubberyCreationForm : public AForm
         ~ShrubberyCreationForm();
         ShrubberyCreationForm(const ShrubberyCreationForm &sc);
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm &sc);
-        void excute(const Bureaucrat &bure) const;
+        void execute(const Bureaucrat &bure) const;
 };
-

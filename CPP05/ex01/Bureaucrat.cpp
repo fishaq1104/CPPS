@@ -1,6 +1,17 @@
-#include "Bureaucrat.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fishaq <fishaq@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 17:53:28 by fishaq            #+#    #+#             */
+/*   Updated: 2025/07/05 19:01:13 by fishaq           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-//Do the things like writing weather it i Build and tsuffs ... and make the main proper  fix the messages
+
+#include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat():_name("name"), _grade(0){
 }
@@ -44,6 +55,7 @@ void Bureaucrat::increment()
         this->_grade--;
     else
         throw Bureaucrat::GradeTooHighException();
+    std::cout <<"The Bureaucrat " << this->_name << " has been incremented successfully" << std::endl;
 }
 
 void Bureaucrat::decrement()
@@ -52,6 +64,7 @@ void Bureaucrat::decrement()
         this->_grade++;
     else
         throw Bureaucrat::GradeTooLowException();
+    std::cout <<"The Bureaucrat " << this->_name << " has been decremented successfully" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &os,const Bureaucrat &bure)
@@ -80,10 +93,10 @@ void Bureaucrat::signForm(Form &form)
     try
     {
         form.beSigned(*this);
-        std::cout << "bureaucrat:: " << this->getName() << " signed " << form.getName() << std::endl;
+        std::cout << this->getName() << " signed " << form.getName() << std::endl;
     }
     catch(const std::exception& e)
     {
-        std::cout << this->getName() <<  "couldn’t sign " <<form.getName()  << " because " << e.what() << " ." << std::endl;
+        std::cout << this->getName() <<  " couldn’t sign " <<form.getName()  << " because " << e.what() << " ." << std::endl;
     }
 }

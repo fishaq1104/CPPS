@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fishaq <fishaq@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 17:55:20 by fishaq            #+#    #+#             */
+/*   Updated: 2025/07/06 14:04:10 by fishaq           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat():_name("name"), _grade(0){
@@ -9,28 +21,21 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade): _name(name), _grade(
         throw (Bureaucrat::GradeTooHighException());
     if(grade > 150)
         throw (Bureaucrat::GradeTooLowException());
+    std::cout <<"The Bureaucrat " << this->_name << " has been created" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &bure) : _name(bure._name), _grade(bure._grade)
-{
-    if (this != &bure)
-    {
-        const_cast<std::string &>(this->_name) = bure._name;
-        this->_grade = bure._grade;
-    }
+Bureaucrat::Bureaucrat(const Bureaucrat &bure) : _name(bure._name), _grade(bure._grade){
 }
 
 Bureaucrat::~Bureaucrat(){
+    std::cout <<"The Bureaucrat " << this->_name << " has been destroyed" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &bure)
 {
     if (this != &bure) 
-    {
-        const_cast<std::string &>(this->_name) = bure._name;
         this->_grade = bure._grade;
-    }
-        return *this;
+    return *this;
 }
 
 const std::string Bureaucrat::getName() const
@@ -43,34 +48,22 @@ int Bureaucrat::getGrade() const
     return this->_grade;
 }
 
-void Bureaucrat::setGrade(const int &grade)
-{
-    if(grade < 1)
-        throw Bureaucrat::GradeTooHighException();
-    if(grade > 150)
-        throw Bureaucrat::GradeTooLowException();
-    this->_grade = grade;
-}
-
-void Bureaucrat::setName(const std::string &name)
-{
-    const_cast<std::string &>(this->_name) = name;
-}
-
 void Bureaucrat::increment()
 {
-    if(this->_grade > 0)
+    if(this->_grade > 1)
         this->_grade--;
     else
         throw Bureaucrat::GradeTooHighException();
+    std::cout <<"The Bureaucrat " << this->_name << " has been incremented successfully" << std::endl;
 }
 
 void Bureaucrat::decrement()
 {
-    if(this->_grade <= 150)
+    if(this->_grade < 150)
         this->_grade++;
     else
         throw Bureaucrat::GradeTooLowException();
+    std::cout <<"The Bureaucrat " << this->_name << " has been decremented successfully" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &os,const Bureaucrat &bure)
@@ -91,14 +84,19 @@ const char *Bureaucrat::GradeTooLowException:: what() const throw()
 
 void Bureaucrat::signForm(AForm &form)
 {
+    if(form.getSign())
+    {
+        std::cout<< "the form is already signed" << std::endl;
+        return ;
+    }
     try
     {
         form.beSigned(*this);
-        std::cout << "bureaucrat:: " << this->getName() << " signed " << form.getName() << std::endl;
+        std::cout << this->getName() << " signed " << form.getName() << std::endl;
     }
     catch(const std::exception& e)
     {
-        std::cout << this->getName() <<  " couldn’t sign " <<form.getName()  << " because " << e.what() << " ." << std::endl;
+        std::cout << this->getName() <<  " couldn’t sign " << form.getName()  << " because " << e.what() << " ." << std::endl;
     }
 }
 
@@ -106,12 +104,11 @@ void Bureaucrat::executeForm(AForm const & form)
 {
     try
     {
-        form.excute(*this);
+        form.execute(*this);
         std::cout << this->getName() << " executed  " << form.getName() << std::endl;
     }
     catch(const std::exception& e)
     {
-        std::cout <<"Excuted : " << e.what() << std::endl;
+        std::cout <<"Not Excuted Because: " << e.what() << std::endl;
     }
 }
-

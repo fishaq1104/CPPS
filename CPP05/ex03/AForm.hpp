@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fishaq <fishaq@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 18:01:58 by fishaq            #+#    #+#             */
+/*   Updated: 2025/07/05 18:02:00 by fishaq           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 
 #include <iostream>
@@ -41,7 +53,7 @@ class AForm
         int getGradeExcute() const ;
         bool getSign() const ;
         void beSigned(const Bureaucrat &bure);
-        virtual void excute(const Bureaucrat &bure)const = 0;
+        virtual void execute(const Bureaucrat &bure)const = 0;
 };
 
 std::ostream &operator<<(std::ostream &os,const AForm &form);

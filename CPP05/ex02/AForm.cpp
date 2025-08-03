@@ -1,18 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fishaq <fishaq@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 17:54:23 by fishaq            #+#    #+#             */
+/*   Updated: 2025/07/06 14:12:40 by fishaq           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AForm.hpp"
 
 AForm::AForm() :_name("name"), _sign(0), _gradeSign(0), _gradeExcute(0){
 }
 
 AForm::~AForm(){
+    std::cout << "The AForm has been destroyed" << std::endl;
 }
 
 AForm::AForm(const std::string &name, const int gradeSign, const int gradeExcute): 
-                _name(name), _gradeSign(gradeSign), _gradeExcute(gradeExcute)
+                _name(name),  _sign(false), _gradeSign(gradeSign), _gradeExcute(gradeExcute)
 {
     if(gradeSign > 150 || gradeExcute > 150)
         throw AForm::GradeTooLowException();
     else if(gradeSign < 1 || gradeExcute < 1)
         throw AForm::GradeTooHighException();
+    std::cout << "The AForm has been created" << std::endl;
 }
 
 AForm::AForm(const AForm &form): _name(form._name), _sign(form._sign), _gradeSign(form._gradeSign), 
@@ -48,6 +62,11 @@ bool AForm::getSign() const
 
 void AForm::beSigned(const Bureaucrat &bure)
 {
+    if(getSign())
+    {
+        std::cout<< "the form is already signed" << std::endl;
+        return ;
+    }
     if(bure.getGrade() <= this->_gradeSign)
         this->_sign = true;
     else
@@ -56,7 +75,7 @@ void AForm::beSigned(const Bureaucrat &bure)
 
 std::ostream &operator<<(std::ostream &os,const AForm &form)
 {
-    os << form.getName() << ", the form has been signed ";
+    os << form.getName() << ", Form can be signed by grade " << form.getGradeSign() << " and executed by grade " << form.getGradeExcute() << ".";
     return os;
 }
 

@@ -1,5 +1,16 @@
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fishaq <fishaq@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 18:00:19 by fishaq            #+#    #+#             */
+/*   Updated: 2025/07/05 18:00:21 by fishaq           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -33,5 +44,3 @@ class Bureaucrat
 };
 
 std::ostream &operator<<(std::ostream &os,const Bureaucrat &bure);
-
-#endif

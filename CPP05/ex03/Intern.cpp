@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fishaq <fishaq@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 17:55:29 by fishaq            #+#    #+#             */
+/*   Updated: 2025/07/05 18:46:35 by fishaq           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Intern.hpp"
 
 Intern::Intern()
@@ -16,8 +28,7 @@ Intern::Intern(const Intern &intern){
 
 Intern& Intern::operator=(const Intern &intern)
 {
-    if(this != &intern)
-        *this = intern;
+    (void)intern;
     return *this;
 }
 

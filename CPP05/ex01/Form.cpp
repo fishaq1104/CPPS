@@ -1,13 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fishaq <fishaq@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 17:53:35 by fishaq            #+#    #+#             */
+/*   Updated: 2025/07/06 13:53:44 by fishaq           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Form.hpp"
 
 Form::Form() :_name("name"), _sign(0),_gradeSign(0), _gradeExcute(0){
 }
 
-Form::~Form(){
+Form::~Form()
+{
+    std::cout << "The Form has been destroyed" << std::endl;
 }
 
 Form::Form(const std::string &name, const int gradeSign, const int gradeExcute): 
-                _name(name), _gradeSign(gradeSign), _gradeExcute(gradeExcute) 
+                _name(name), _sign(false), _gradeSign(gradeSign), _gradeExcute(gradeExcute) 
 {
     if(gradeSign > 150 || gradeExcute > 150)
         throw Form::GradeTooLowException();
@@ -49,6 +63,11 @@ bool Form::getSign() const
 
 void Form::beSigned(const Bureaucrat& bure)
 {
+    if(getSign())
+    {
+        std::cout<< "the form is already signed" << std::endl;
+        return ;
+    }
     if(bure.getGrade() <= this->_gradeSign)
     {
         this->_sign = true;
@@ -59,8 +78,8 @@ void Form::beSigned(const Bureaucrat& bure)
 }
 
 std::ostream &operator<<(std::ostream &os,const Form &form)
-{
-    os << form.getName() << ", the form has been signed ";
+{    
+    os << form.getName() << ", Form can be signed by grade " << form.getGradeSign() << " and executed by grade " << form.getGradeExcute() << ".";
     return os;
 }
 

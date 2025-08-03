@@ -1,5 +1,16 @@
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fishaq <fishaq@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 18:01:43 by fishaq            #+#    #+#             */
+/*   Updated: 2025/07/05 18:01:47 by fishaq           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -31,8 +42,6 @@ class Bureaucrat
         ~Bureaucrat();
         const std::string getName() const;
         int getGrade() const;
-        void setGrade(const int &grade);
-        void setName(const std::string &name);
         void increment();
         void decrement();
         void signForm(AForm &form);
@@ -40,5 +49,3 @@ class Bureaucrat
 };
 
 std::ostream &operator<<(std::ostream &os,const Bureaucrat &bure);
-
-#endif

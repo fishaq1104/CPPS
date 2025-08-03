@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fishaq <fishaq@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 18:03:06 by fishaq            #+#    #+#             */
+/*   Updated: 2025/07/05 18:03:07 by fishaq           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 
 #include <cstdlib>
@@ -14,6 +26,6 @@ class RobotomyRequestForm : public AForm
         ~RobotomyRequestForm();
         RobotomyRequestForm(const RobotomyRequestForm &sc);
         RobotomyRequestForm& operator=(const RobotomyRequestForm &sc);
-        void excute(const Bureaucrat &bure) const;
+        void execute(const Bureaucrat &bure) const;
 };
 
